@@ -10,14 +10,12 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
-SCRIPT_PATH = (
-    Path(__file__).resolve().parents[1]
-    / ".agents"
-    / "skills"
-    / "med-it-feishu-daily-brief"
-    / "scripts"
-    / "build_digest.py"
-)
+APP_ROOT = Path(__file__).resolve().parents[1]
+SCRIPT_RELATIVE_CANDIDATES = [
+    Path(".agents/skills/med-it-feishu-daily-brief/scripts/build_digest.py"),
+    Path("agents/skills/med-it-feishu-daily-brief/scripts/build_digest.py"),
+]
+
 DEFAULT_OUTPUT_DIR = "/tmp/med-it-digest" if os.name != "nt" else "./output/med-it-digest-vercel"
 
 
@@ -44,9 +42,31 @@ def _is_authorized(handler: BaseHTTPRequestHandler) -> bool:
     return query_token == secret
 
 
+def _resolve_paths() -> tuple[Path | None, Path, Path | None, list[str]]:
+    # Support multiple repo layouts and hidden/non-hidden agents directory names.
+    base_candidates = [APP_ROOT, APP_ROOT / "news"]
+    tried: list[str] = []
+
+    for base in base_candidates:
+        for script_rel in SCRIPT_RELATIVE_CANDIDATES:
+            script_candidate = base / script_rel
+            tried.append(str(script_candidate))
+            if script_candidate.exists():
+                registry_rel = script_rel.parent.parent / "references" / "source_registry.example.yaml"
+                registry_candidate = base / registry_rel
+                return script_candidate, base, registry_candidate, tried
+
+    return None, APP_ROOT, None, tried
+
+
 def _run_digest() -> tuple[int, dict[str, Any]]:
-    if not SCRIPT_PATH.exists():
-        return 500, {"ok": False, "error": f"Script not found: {SCRIPT_PATH}"}
+    script_path, workdir, registry_path, tried_paths = _resolve_paths()
+    if script_path is None:
+        return 500, {
+            "ok": False,
+            "error": "Script not found",
+            "tried_paths": tried_paths,
+        }
 
     lookback_hours = os.getenv("DIGEST_LOOKBACK_HOURS", "72").strip() or "72"
     timezone_name = os.getenv("DIGEST_TIMEZONE", "Asia/Shanghai").strip() or "Asia/Shanghai"
@@ -56,10 +76,12 @@ def _run_digest() -> tuple[int, dict[str, Any]]:
     env["PYTHONUTF8"] = "1"
     env["PYTHONIOENCODING"] = "utf-8"
     env["DIGEST_OUTPUT_DIR"] = output_dir
+    if registry_path is not None and registry_path.exists() and not env.get("SOURCE_REGISTRY_PATH"):
+        env["SOURCE_REGISTRY_PATH"] = str(registry_path)
 
     cmd = [
         sys.executable,
-        str(SCRIPT_PATH),
+        str(script_path),
         "--delivery-mode",
         "send",
         "--lookback-hours",
@@ -75,6 +97,7 @@ def _run_digest() -> tuple[int, dict[str, Any]]:
         encoding="utf-8",
         env=env,
         timeout=240,
+        cwd=str(workdir),
     )
 
     response = {
@@ -84,6 +107,8 @@ def _run_digest() -> tuple[int, dict[str, Any]]:
         "stderr": result.stderr[-4000:],
         "ran_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "output_dir": output_dir,
+        "workdir": str(workdir),
+        "script_path": str(script_path),
     }
 
     if result.returncode != 0:
@@ -102,4 +127,3 @@ class handler(BaseHTTPRequestHandler):
 
     def log_message(self, format: str, *args: object) -> None:  # noqa: A003
         return
-
