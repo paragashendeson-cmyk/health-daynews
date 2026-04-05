@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "sent_at": "2026-04-03 09:35:59",
+  "payload": "E:\\codex\\news\\output\\med-it-digest\\2026-04-03\\feishu_payload.json",
+  "result": {
+    "http_status": 200,
+    "response": {
+      "StatusCode": 0,
+      "StatusMessage": "success",
+      "code": 0,
+      "data": {},
+      "msg": "success"
+    }
+  }
+}

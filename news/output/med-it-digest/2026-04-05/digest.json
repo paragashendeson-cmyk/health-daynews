@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "generated_at": "2026-04-05 22:12:00",
+    "timezone": "Asia/Shanghai",
+    "target_audience": "医疗 IT 产品经理",
+    "lookback_hours": 72,
+    "delivery_mode": "send"
+  },
+  "tools": [],
+  "healthcare": [
+    {
+      "topic": "healthcare",
+      "title": "刚刚！医大一院、盛京医院发布重要通知！ - 新浪财经",
+      "source": "新浪财经",
+      "author_or_org": "新浪财经",
+      "published_at": "2026-04-05 12:51",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSRlF1SThQeGxVMXJ0a0hSQ3pzcUtsUzRBYkVlODdOTUxlQTRNMmFlb2NwZ2I1Mlp3NXRKa1ZYYjVxTElqaklBV3c3OWNJd25jRWNDNFd4YUJlbFlVT0F6SlhHd0RrZXNFUU1TRmhyY1BzbFhKNmc?oc=5",
+      "summary": "刚刚！医大一院、盛京医院发布重要通知！ 新浪财经",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 70
+    },
+    {
+      "topic": "healthcare",
+      "title": "《第二届改善医院药事管理与药学服务创新案例汇编》出版 - 经济参考报",
+      "source": "经济参考报",
+      "author_or_org": "经济参考报",
+      "published_at": "2026-04-03 18:39",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRF9CM3M3bTVvWGtsT2VkbXNmbGhOYkZoa3U1WWdVdVRRV3psQi1uN0RidWJlbzFibGpPcFlCRy05THoyVkFzUS1GUzkxMkd3MHQtaFlOR0c0R0tHZ3RiOGpvNVllUzB5cXJQZzZOYXJxR1ZjQTNTWGdiOTlpZVozTQ?oc=5",
+      "summary": "《第二届改善医院药事管理与药学服务创新案例汇编》出版 经济参考报",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 69
+    },
+    {
+      "topic": "healthcare",
+      "title": "医疗服务提升年丨永州市中心医院成功为尿毒症患者实施分步微创诊疗实现保肛愿望-腾讯新闻 - QQ News",
+      "source": "QQ News",
+      "author_or_org": "QQ News",
+      "published_at": "2026-04-03 16:04",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9hc0syZ2dFNjgwQWVEcnAzd2pNSk9nT0RqNTdwWUNBSkNZOVE4SXBoTlZWdm83ZjA3LXMzWTNCY2hCYThLbmYyZUVVWFYyajdJWjR2Q3VB?oc=5",
+      "summary": "医疗服务提升年丨永州市中心医院成功为尿毒症患者实施分步微创诊疗实现保肛愿望-腾讯新闻 QQ News",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 69
+    },
+    {
+      "topic": "healthcare",
+      "title": "全新升级 服务更优——平度市人民医院互联网+护理服务下单程序焕新上线！ - 搜狐网",
+      "source": "搜狐网",
+      "author_or_org": "搜狐网",
+      "published_at": "2026-04-03 18:05",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQWxxNmUwQTA5OG5oVkt2a2JqTGZxMlduUFgwd3I5MThHVk1BZzI1N294TmZDRGZZbS1wWldHV2RoT3ZzS3Bzd01zZlBCQmNkWVoxOTR6eFF3cW9ya1hOY0hWQktOUTBDOExSeWZtcGprdTc3YlhBZEh5OWMwdTNtdEtlVlJUSERv?oc=5",
+      "summary": "全新升级 服务更优——平度市人民医院互联网+护理服务下单程序焕新上线！ 搜狐网",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 65
+    },
+    {
+      "topic": "healthcare",
+      "title": "AI医院有了\"国际定义\" ——全球首个AI医院国际智联体共识在京发布 - 中华网",
+      "source": "中华网",
+      "author_or_org": "中华网",
+      "published_at": "2026-04-03 16:12",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9EcEpfQTFPMlBITjdoT19mS1dER3lnRzhKWDZYVDVQRTdHOV9GMEtzM0gyTVRiTjlodl9DbjJhRmFMTzFSc0xUMHVySlBQWkR5MWl6ZTdRVkNHNVVsZGFMNzMwdnJ1MDB6QXMxVA?oc=5",
+      "summary": "AI医院有了\"国际定义\" ——全球首个AI医院国际智联体共识在京发布 中华网",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 65
+    }
+  ]
+}

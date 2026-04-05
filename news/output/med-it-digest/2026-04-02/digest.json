@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "generated_at": "2026-04-02 23:14:54",
+    "timezone": "Asia/Shanghai",
+    "target_audience": "医疗IT产品经理",
+    "lookback_hours": 24,
+    "delivery_mode": "send"
+  },
+  "tools": [],
+  "healthcare": [
+    {
+      "topic": "healthcare",
+      "title": "明亚服务案例入选“保险业年度影响力赔案” - 新浪财经",
+      "source": "新浪财经",
+      "author_or_org": "新浪财经",
+      "published_at": "2026-04-01 23:28",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE92eTNzXzU5TjVnRV9HRmNQV3pIWmRwZ0xMVGI4SC1CclY3TE4wbnFJZEZNczNGVllINy03MW9VZWpiUlJiLUNMUUFQcXFCSVJyRnFGd3JweWlFYmwtVXJld2NTYmJfZENXd2xLX2lPbHM1cXZ6WTM1QnR3Xzg3LVE?oc=5",
+      "summary": "明亚服务案例入选“保险业年度影响力赔案” 新浪财经",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 69
+    },
+    {
+      "topic": "healthcare",
+      "title": "全球连线丨云南边境医院为老挝患者带来“希望之光” - 搜狐网",
+      "source": "搜狐网",
+      "author_or_org": "搜狐网",
+      "published_at": "2026-04-02 21:32",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxObzJ6WlRGSkFCOW1SV0hldThhb052XzFpQldkaUFtVXppLVlGdmpaSHNFM095SG1CZ3RzRWNndVlUWjVGY0JkSGdGOUlSSnBOSkhfUW9IYlBYYnYzeEY0ODhVeE81dFZ5MXZTNW83NmJ2WkFWLWt4ZjBsSzNUMU43N2JGaEVCWkZ6?oc=5",
+      "summary": "全球连线丨云南边境医院为老挝患者带来“希望之光” 搜狐网",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 67
+    },
+    {
+      "topic": "healthcare",
+      "title": "探访广东国际医疗服务试点：先进诊疗惠及多国患者 - 新浪财经",
+      "source": "新浪财经",
+      "author_or_org": "新浪财经",
+      "published_at": "2026-04-02 20:12",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5Ickx4UkpHR1kxVDUxQlpES09Dd3VvX3pfSC1Ub3oxWEtSUkRtd2Zvb3FLODl6OUpodEkwMVNackwzc25vdEFVdlIyckpzUVE2RHZMM19ScHhOUmJsZUt2SE9zY1hYWlJwNC15S25ydXhoUnVhbDBGRA?oc=5",
+      "summary": "探访广东国际医疗服务试点：先进诊疗惠及多国患者 新浪财经",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 63
+    },
+    {
+      "topic": "healthcare",
+      "title": "健康160董事长罗宁政：21年做苦活累活筑起护城河 打造公立医院“线上操作系统” - 新华报业网",
+      "source": "新华报业网",
+      "author_or_org": "新华报业网",
+      "published_at": "2026-04-02 19:09",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9JbkZhSkFGVFp3MnJCbjQyWWk4T0Vib3pVVzgwTVUwU3RuUXJvVVBYYjVYRlpBMjRGaFU2UEh4STBXdm9qWUN4cHJBa3NKVERZRzFIU2pvUUoyd0dSakpFN19ua3IzalpNdzg0?oc=5",
+      "summary": "健康160董事长罗宁政：21年做苦活累活筑起护城河 打造公立医院“线上操作系统” 新华报业网",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 63
+    },
+    {
+      "topic": "healthcare",
+      "title": "港澳居民“北上”就医必看！广东首批25家医院入选 - 京报网",
+      "source": "京报网",
+      "author_or_org": "京报网",
+      "published_at": "2026-04-02 18:23",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE03MjlXV3ZrVDlYN2RzclBGVWJQMVRla2NuTWs5ei1hWU90b0RmS2tzYk9ETDVMeGlNOHFJMWlSSGtUM0JzZDlmcUhlbkhvOWJScmNsRl95M1lDZ0ZhTEJKc0hxQ3dSM0xqQmgwTFB1bC1rdw?oc=5",
+      "summary": "港澳居民“北上”就医必看！广东首批25家医院入选 京报网",
+      "image_url_or_cover": null,
+      "evidence_type": "媒体/社区",
+      "score": 63
+    }
+  ]
+}

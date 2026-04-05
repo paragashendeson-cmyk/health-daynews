@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "sent_at": "2026-04-05 22:12:01",
+  "result": {
+    "http_status": 200,
+    "response": {
+      "StatusCode": 0,
+      "StatusMessage": "success",
+      "code": 0,
+      "data": {},
+      "msg": "success"
+    }
+  }
+}
