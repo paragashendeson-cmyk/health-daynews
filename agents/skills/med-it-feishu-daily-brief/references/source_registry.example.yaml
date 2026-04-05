@@ -1,0 +1,80 @@
+version: 1
+updated_at: "2026-04-03"
+timezone: "Asia/Shanghai"
+
+tool_sources:
+  - name: "X Search"
+    type: "social"
+    url: "https://x.com/search"
+    priority: "high"
+    note: "关注 AI prototyping / text-to-ui / text-to-frontend 关键词"
+  - name: "YouTube Search"
+    type: "video"
+    url: "https://www.youtube.com/results"
+    priority: "high"
+    note: "优先工具官方频道、发布会、实操演示"
+  - name: "Product Hunt"
+    type: "community"
+    url: "https://www.producthunt.com/"
+    priority: "medium"
+    note: "用于发现新工具，再回查官方源"
+  - name: "Official blogs and changelogs"
+    type: "official"
+    url: "https://example.com/changelog"
+    priority: "high"
+    note: "示例位，实际按候选工具官网替换"
+  - name: "微博"
+    type: "social_cn"
+    url: "https://s.weibo.com/"
+    priority: "medium"
+  - name: "微信公众号文章"
+    type: "social_cn"
+    url: "https://weixin.sogou.com/"
+    priority: "medium"
+
+healthcare_sources:
+  - name: "医院官网新闻中心"
+    type: "official"
+    url: "https://example-hospital.org/news"
+    priority: "high"
+    note: "示例位，建议替换为重点医院白名单"
+  - name: "互联网医疗企业官网"
+    type: "official"
+    url: "https://example-healthtech.com/press"
+    priority: "high"
+  - name: "国家卫健委"
+    type: "policy"
+    url: "https://www.nhc.gov.cn/"
+    priority: "medium"
+    note: "仅作背景，不作为产品创新条目主来源"
+  - name: "动脉网"
+    type: "media"
+    url: "https://www.vbdata.cn/"
+    priority: "medium"
+  - name: "健康界"
+    type: "media"
+    url: "https://www.cn-healthcare.com/"
+    priority: "medium"
+
+query_hints:
+  tools:
+    - "AI prototyping"
+    - "text to ui"
+    - "text to frontend"
+    - "wireframe ai"
+    - "ai design copilot"
+  healthcare:
+    - "互联网医院 新功能"
+    - "AI 导诊"
+    - "AI 随访"
+    - "线上复诊 慢病管理"
+    - "医疗服务 小程序"
+    - "全病程管理"
+    - "医院 商城"
+    - "互联网医院"
+
+trust_policy:
+  prefer_official_first: true
+  min_evidence_links_per_item: 1
+  keep_images_or_case_links_if_possible: true
+  reject_unverified_reposts: true
