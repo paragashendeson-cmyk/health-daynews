@@ -1,0 +1,46 @@
+name: Med IT Daily Feishu
+
+on:
+  schedule:
+    - cron: "5 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Trigger Vercel digest endpoint
+        env:
+          DIGEST_TRIGGER_URL: ${{ secrets.DIGEST_TRIGGER_URL }}
+        run: |
+          if [ -z "$DIGEST_TRIGGER_URL" ]; then
+            echo "DIGEST_TRIGGER_URL secret is required"
+            exit 1
+          fi
+
+          response_file="$(mktemp)"
+          http_code="$(curl -sS -o "$response_file" -w "%{http_code}" "$DIGEST_TRIGGER_URL")"
+
+          echo "HTTP $http_code"
+          cat "$response_file"
+
+          if [ "$http_code" != "200" ]; then
+            echo "Digest trigger failed with non-200 status"
+            exit 1
+          fi
+
+          python - "$response_file" <<'PY'
+          import json
+          import sys
+
+          path = sys.argv[1]
+          with open(path, "r", encoding="utf-8") as fh:
+              data = json.load(fh)
+
+          if not data.get("ok"):
+              raise SystemExit("Digest trigger returned ok=false")
+
+          print("Digest trigger succeeded")
+          PY
