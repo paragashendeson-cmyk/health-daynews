@@ -21,7 +21,7 @@ jobs:
           fi
 
           response_file="$(mktemp)"
-          http_code="$(curl -sS -o "$response_file" -w "%{http_code}" "$DIGEST_TRIGGER_URL")"
+          http_code="$(curl -L -sS -o "$response_file" -w "%{http_code}" "$DIGEST_TRIGGER_URL")"
 
           echo "HTTP $http_code"
           cat "$response_file"
