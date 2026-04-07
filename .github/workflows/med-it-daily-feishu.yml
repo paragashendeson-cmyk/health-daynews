@@ -2,7 +2,8 @@ name: Med IT Daily Feishu
 
 on:
   schedule:
-    - cron: "5 1 * * *"
+    - cron: "17 1 * * *"
+    - cron: "47 1 * * *"
   workflow_dispatch:
 
 jobs:
@@ -11,7 +12,56 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - name: Skip duplicate schedule run on the same UTC day
+        id: dedupe
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import datetime
+          import json
+          import os
+          import urllib.request
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          run_id = int(os.environ["GITHUB_RUN_ID"])
+          workflow_name = os.environ["GITHUB_WORKFLOW"]
+          utc_today = datetime.datetime.utcnow().date().isoformat()
+
+          api = f"https://api.github.com/repos/{repo}/actions/runs?event=schedule&per_page=50"
+          req = urllib.request.Request(
+              api,
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=20) as resp:
+              payload = json.loads(resp.read().decode("utf-8"))
+
+          skip = False
+          for run in payload.get("workflow_runs", []):
+              if int(run.get("id", 0)) == run_id:
+                  continue
+              if run.get("name") != workflow_name:
+                  continue
+              if run.get("conclusion") != "success":
+                  continue
+              if str(run.get("created_at", "")).startswith(utc_today):
+                  skip = True
+                  break
+
+          output_path = os.environ["GITHUB_OUTPUT"]
+          with open(output_path, "a", encoding="utf-8") as fh:
+              fh.write(f"skip={'true' if skip else 'false'}\n")
+
+          print(f"dedupe skip={skip}")
+          PY
+
       - name: Trigger Vercel digest endpoint
+        if: steps.dedupe.outputs.skip != 'true'
         env:
           DIGEST_TRIGGER_URL: ${{ secrets.DIGEST_TRIGGER_URL }}
         run: |
@@ -44,3 +94,7 @@ jobs:
 
           print("Digest trigger succeeded")
           PY
+
+      - name: Report skipped duplicate run
+        if: steps.dedupe.outputs.skip == 'true'
+        run: echo "Skip trigger because another scheduled run already succeeded today."
